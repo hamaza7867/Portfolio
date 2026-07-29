@@ -1,6 +1,8 @@
 'use client';
 
+import { useRef } from 'react';
 import { Calendar, Building, FileDown, GitCommit } from 'lucide-react';
+import { motion, useScroll } from 'framer-motion';
 import ScrollReveal from '@/components/portfolio/ScrollReveal';
 
 const experiences = [
@@ -13,7 +15,7 @@ const experiences = [
   },
   {
     commit: 'b4a8e2d',
-    role: 'Full-Stack WordPress Developer',
+    role: 'Full-Stack web & WordPress Developer',
     company: 'X2 Technologies (with Tech Process LLC)',
     period: 'Sep 2025 – Jan 2026',
     desc: 'Developed backend logic, filtering, and routing for usalocalbusinesses.com, a directory platform with custom search and user dashboards. Constructed and scaled a programmatic routing framework generating directory and service sub-pages at volume. Led legacy security remediation — isolated and removed malicious file injections via FTP/SFTP to restore platform stability.',
@@ -35,6 +37,12 @@ const experiences = [
 ];
 
 export default function ExperiencePage() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start center", "end center"]
+  });
+
   return (
     <div className="py-16 md:py-24 max-w-[800px] mx-auto px-6">
       {/* Title */}
@@ -62,16 +70,37 @@ export default function ExperiencePage() {
       </ScrollReveal>
 
       {/* Vertical Git commit timeline */}
-      <div className="relative border-l-2 ml-4 pl-8 space-y-12" style={{ borderColor: 'var(--border-variant)' }}>
+      <div ref={containerRef} className="relative ml-4 pl-8 space-y-12">
+        {/* Background Track Line */}
+        <div 
+          className="absolute left-0 top-3 bottom-3 w-[2px]" 
+          style={{ background: 'var(--border-variant)' }} 
+        />
+        
+        {/* Colored Progress-Filled Line */}
+        <motion.div 
+          className="absolute left-0 top-3 bottom-3 w-[2px] origin-top"
+          style={{ 
+            scaleY: scrollYProgress,
+            background: 'linear-gradient(to bottom, var(--accent-purple), var(--accent-cyan))',
+          }}
+        />
+
         {experiences.map((exp, i) => (
           <ScrollReveal key={exp.role + i} delay={i * 0.05} className="relative">
-            {/* Timeline node marker (Git Commit Node) */}
-            <span
-              className="absolute -left-[45px] top-1.5 w-6 h-6 rounded-full border-4 bg-background flex items-center justify-center transition-all duration-300 hover:scale-125"
-              style={{ borderColor: 'var(--accent-cyan)' }}
+            {/* Timeline node marker (Git Commit Node) with viewport-based pass-by activation */}
+            <motion.span
+              className="absolute -left-[45px] top-1.5 w-6 h-6 rounded-full border-4 bg-background flex items-center justify-center transition-all duration-300 z-10"
+              initial={{ borderColor: 'var(--border-variant)', scale: 0.9, boxShadow: 'none' }}
+              whileInView={{
+                borderColor: 'var(--accent-cyan)',
+                scale: 1.15,
+                boxShadow: '0 0 12px var(--accent-cyan)',
+              }}
+              viewport={{ once: false, margin: "-45% 0px -45% 0px" }}
             >
-              <GitCommit size={12} style={{ color: 'var(--accent-cyan)' }} />
-            </span>
+              <GitCommit size={12} className="transition-colors duration-300" style={{ color: 'var(--accent-cyan)' }} />
+            </motion.span>
 
             <div className="card p-6 bg-surface border-variant shadow-sm hover:shadow-md transition-all duration-300">
               <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
