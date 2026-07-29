@@ -123,18 +123,18 @@
   --card-foreground: #F8FAFC;
   --popover: #2E3340;
   --popover-foreground: #F8FAFC;
-  --primary: #2196F3;
+  --primary: #FFD22D;
   --primary-foreground: #0F172A;
   --secondary: #a78bfa;
   --secondary-foreground: #0F172A;
   --muted: #363C4A;
   --muted-foreground: #94A3B8;
-  --accent: #2196F3;
-  --accent-foreground: #F8FAFC;
+  --accent: #FFD22D;
+  --accent-foreground: #0F172A;
   --destructive: #ef4444;
   --border: #3E4556;
   --input: #3E4556;
-  --ring: #2196F3;
+  --ring: #FFD22D;
 
   --ground: #262B35;
   --ground-dim: #1E222B;
@@ -154,10 +154,10 @@
   --border-variant: #363C4A;
   --border-strong: #475569;
 
-  --accent-cyan: #2196F3;
-  --accent-cyan-dim: rgba(33, 150, 243, 0.1);
-  --accent-cyan-muted: rgba(33, 150, 243, 0.15);
-  --accent-cyan-glow: rgba(33, 150, 243, 0.2);
+  --accent-cyan: #FFD22D;
+  --accent-cyan-dim: rgba(255, 210, 45, 0.1);
+  --accent-cyan-muted: rgba(255, 210, 45, 0.15);
+  --accent-cyan-glow: rgba(255, 210, 45, 0.2);
 
   --accent-purple: #a855f7;
   --accent-purple-dim: rgba(168, 85, 247, 0.1);
@@ -169,7 +169,7 @@
   --accent-green-muted: rgba(34, 197, 94, 0.12);
   --accent-green-glow: rgba(34, 197, 94, 0.2);
 
-  --glow-cyan: 0 0 20px rgba(33, 150, 243, 0.15), 0 0 60px rgba(33, 150, 243, 0.05);
+  --glow-cyan: 0 0 20px rgba(255, 210, 45, 0.15), 0 0 60px rgba(255, 210, 45, 0.05);
   --glow-purple: 0 0 20px rgba(168, 85, 247, 0.15), 0 0 60px rgba(168, 85, 247, 0.05);
   --glow-green: 0 0 20px rgba(34, 197, 94, 0.15), 0 0 60px rgba(34, 197, 94, 0.05);
 

@@ -91,10 +91,10 @@ const projects = [
 ];
 
 const webProjects = [
-  { name: 'X2 Technologies', url: 'https://x2technologies.pk/', desc: 'Corporate website for a tech services company.', image: '/projects/x2tech.png' },
-  { name: 'Cyphex Agency', url: 'https://cyphex.agency/', desc: 'Digital agency portfolio and services site.', image: '/projects/cyphex.png' },
-  { name: 'XF Services LLC', url: 'https://xf-servicesllc.com/', desc: 'Professional services business site.', image: '/projects/xf-services.png' },
-  { name: 'USA Local Businesses', url: 'https://usalocalbusinesses.com/', desc: 'Business directory with 300+ programmatic landing pages.', image: '/projects/usalocal.png' },
+  { name: 'X2 Technologies', url: 'https://x2technologies.pk/', desc: 'Corporate website for a tech services company.', image: '/projects/x2tech.webp' },
+  { name: 'Cyphex Agency', url: 'https://cyphex.agency/', desc: 'Digital agency portfolio and services site.', image: '/projects/cyphex.webp' },
+  { name: 'XF Services LLC', url: 'https://xf-servicesllc.com/', desc: 'Professional services business site.', image: '/projects/xf-services.webp' },
+  { name: 'USA Local Businesses', url: 'https://usalocalbusinesses.com/', desc: 'Business directory with 300+ programmatic landing pages.', image: '/projects/usalocal.webp' },
 ];
 
 const accentMap = {
