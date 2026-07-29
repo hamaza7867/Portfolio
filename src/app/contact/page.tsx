@@ -19,6 +19,10 @@ const budgetRanges = [
   '$5k+',
 ];
 
+import { useRef, useEffect } from 'react';
+import { useToast } from '@/hooks/use-toast';
+import { Loader2 } from 'lucide-react';
+
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: '',
@@ -28,17 +32,116 @@ export default function ContactPage() {
   const [selectedType, setSelectedType] = useState('');
   const [selectedBudget, setSelectedBudget] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [website, setWebsite] = useState(''); // Honeypot state
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const { toast } = useToast();
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const turnstileRef = useRef<HTMLDivElement>(null);
+  const widgetIdRef = useRef<string | null>(null);
+
+  useEffect(() => {
+    let interval: any;
+    
+    const tryRender = () => {
+      if ((window as any).turnstile && turnstileRef.current && !widgetIdRef.current) {
+        try {
+          widgetIdRef.current = (window as any).turnstile.render(turnstileRef.current, {
+            sitekey: '0x4AAAAAAEA394KvZ5B8o743',
+            callback: (token: string) => {
+              setTurnstileToken(token);
+            },
+          });
+          if (interval) clearInterval(interval);
+        } catch (e) {
+          console.error('Turnstile render error:', e);
+        }
+      }
+    };
+
+    tryRender();
+    interval = setInterval(tryRender, 250);
+
+    let script = document.querySelector('script[src*="turnstile/v0/api.js"]') as HTMLScriptElement;
+    if (!script) {
+      script = document.createElement('script');
+      script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+      script.async = true;
+      script.defer = true;
+      document.body.appendChild(script);
+    }
+
+    return () => {
+      if (interval) clearInterval(interval);
+      if (widgetIdRef.current && (window as any).turnstile) {
+        try {
+          (window as any).turnstile.remove(widgetIdRef.current);
+          widgetIdRef.current = null;
+        } catch (e) {
+          // ignore
+        }
+      }
+    };
+  }, []);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (!turnstileToken) {
+      toast({
+        title: 'Security Verification Required',
+        description: 'Please complete the CAPTCHA before submitting.',
+        variant: 'destructive',
+      });
+      return;
+    }
+
     setStatus('loading');
-    // Simulated submission
-    setTimeout(() => {
-      setStatus('success');
-      setFormData({ name: '', email: '', message: '' });
-      setSelectedType('');
-      setSelectedBudget('');
-    }, 1200);
+
+    try {
+      const response = await fetch('https://emailworker.hamaza7867.workers.dev', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          projectType: selectedType,
+          budget: selectedBudget,
+          message: formData.message,
+          website, // Honeypot
+          turnstileToken,
+        }),
+      });
+
+      const data = await response.json() as { success?: boolean; error?: string };
+
+      if (response.ok && data.success) {
+        setStatus('success');
+        toast({
+          title: 'Message Sent!',
+          description: 'Thank you for reaching out. I will get back to you shortly.',
+        });
+        setFormData({ name: '', email: '', message: '' });
+        setSelectedType('');
+        setSelectedBudget('');
+        
+        // Reset turnstile
+        if ((window as any).turnstile && widgetIdRef.current) {
+          (window as any).turnstile.reset(widgetIdRef.current);
+        }
+        setTurnstileToken(null);
+      } else {
+        throw new Error(data.error || 'Failed to send inquiry.');
+      }
+    } catch (err: any) {
+      setStatus('error');
+      toast({
+        title: 'Error',
+        description: err.message || 'Something went wrong. Please try again.',
+        variant: 'destructive',
+      });
+    }
   };
 
   return (
@@ -180,16 +283,34 @@ export default function ContactPage() {
               />
             </div>
 
+            {/* Honeypot field for anti-spam */}
+            <input
+              type="text"
+              name="website"
+              value={website}
+              onChange={(e) => setWebsite(e.target.value)}
+              className="hidden"
+              autoComplete="off"
+            />
+
+            {/* Cloudflare Turnstile Verification */}
+            <div className="flex justify-start my-4 overflow-hidden w-full origin-left max-w-full scale-[0.85] sm:scale-100">
+              <div ref={turnstileRef} />
+            </div>
+
             {/* Submit */}
             <div className="pt-2">
               <button
                 type="submit"
                 disabled={status === 'loading'}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 text-xs font-bold uppercase tracking-wider rounded-lg transition-all bg-accent-cyan cursor-pointer"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-xs font-bold uppercase tracking-wider rounded-lg transition-all bg-accent-cyan cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                 style={{ background: 'var(--accent-cyan)', color: '#FFFFFF', fontFamily: 'var(--font-mono)' }}
               >
                 {status === 'loading' ? (
-                  'Sending...'
+                  <>
+                    Sending...
+                    <Loader2 className="animate-spin" size={14} />
+                  </>
                 ) : (
                   <>
                     Send Inquiry <Send size={12} />
