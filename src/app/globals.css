@@ -441,3 +441,30 @@
   border-color: var(--accent-cyan) !important;
   box-shadow: 3px 3px 0px 0px #000000 !important;
 }
+
+/* ===== ACCESSIBILITY: YELLOW TEXT CONTRAST OUTLINE ===== */
+.light [style*="color: var(--accent-cyan)"],
+.light [style*="color:var(--accent-cyan)"],
+.light .text-primary,
+.light .text-accent-cyan,
+.light .bg-primary\/10 {
+  text-shadow: 
+    -0.5px -0.5px 0 #000000,  
+     0.5px -0.5px 0 #000000,
+    -0.5px  0.5px 0 #000000,
+     0.5px  0.5px 0 #000000;
+}
+
+.light .bg-primary\/10 {
+  color: #1F1B11 !important;
+  border-color: #000000 !important;
+}
+
+.light [style*="color: var(--accent-cyan)"] a,
+.light [style*="color: var(--accent-cyan)"] span {
+  text-shadow: 
+    -0.5px -0.5px 0 #000000,  
+     0.5px -0.5px 0 #000000,
+    -0.5px  0.5px 0 #000000,
+     0.5px  0.5px 0 #000000;
+}
