@@ -207,7 +207,7 @@ export default {
                   </div>
                   <!-- Footer -->
                   <div style="padding: 20px 30px; background-color: #F8FAFC; border-top: 1px solid #F1F5F9; text-align: center; font-size: 11px; color: #94A3B8; font-family: monospace;">
-                    You are receiving this because you contacted me at ali-hamza.com
+                    You are receiving this because you contacted me at <a href="https://alihamza-portfolio.pages.dev" style="color: #2196F3; text-decoration: none;">alihamza-portfolio.pages.dev</a>
                   </div>
                 </div>
               </div>
