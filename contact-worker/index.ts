@@ -107,8 +107,16 @@ export default {
                   <table width="100%" cellpadding="0" cellspacing="0" border="0">
                     <tr>
                       <td style="vertical-align: middle;">
-                        <div style="display: inline-block; width: 36px; height: 36px; line-height: 36px; background-color: #2196F3; color: #FFFFFF; font-weight: bold; text-align: center; border-radius: 6px; font-size: 16px; margin-right: 12px; font-family: monospace;">AH</div>
-                        <span style="font-size: 16px; font-weight: 700; color: #0F172A; letter-spacing: -0.5px;">Ali Hamza</span>
+                        <table cellpadding="0" cellspacing="0" border="0">
+                          <tr>
+                            <td style="padding-right: 12px; vertical-align: middle;">
+                              <div style="width: 36px; height: 36px; line-height: 36px; background-color: #2196F3; color: #FFFFFF; font-weight: bold; text-align: center; border-radius: 6px; font-size: 16px; font-family: monospace;">AH</div>
+                            </td>
+                            <td style="vertical-align: middle;">
+                              <span style="font-size: 16px; font-weight: 700; color: #0F172A; letter-spacing: -0.5px;">Ali Hamza</span>
+                            </td>
+                          </tr>
+                        </table>
                       </td>
                       <td align="right" style="vertical-align: middle;">
                         <span style="font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #2196F3; background-color: #E3F2FD; padding: 6px 12px; border-radius: 20px; font-family: monospace;">New Lead</span>
@@ -183,8 +191,16 @@ export default {
                     <table width="100%" cellpadding="0" cellspacing="0" border="0">
                       <tr>
                         <td style="vertical-align: middle;">
-                          <div style="display: inline-block; width: 36px; height: 36px; line-height: 36px; background-color: #2196F3; color: #FFFFFF; font-weight: bold; text-align: center; border-radius: 6px; font-size: 16px; margin-right: 12px; font-family: monospace;">AH</div>
-                          <span style="font-size: 16px; font-weight: 700; color: #0F172A; letter-spacing: -0.5px;">Ali Hamza</span>
+                          <table cellpadding="0" cellspacing="0" border="0">
+                            <tr>
+                              <td style="padding-right: 12px; vertical-align: middle;">
+                                <div style="width: 36px; height: 36px; line-height: 36px; background-color: #2196F3; color: #FFFFFF; font-weight: bold; text-align: center; border-radius: 6px; font-size: 16px; font-family: monospace;">AH</div>
+                              </td>
+                              <td style="vertical-align: middle;">
+                                <span style="font-size: 16px; font-weight: 700; color: #0F172A; letter-spacing: -0.5px;">Ali Hamza</span>
+                              </td>
+                            </tr>
+                          </table>
                         </td>
                         <td align="right" style="vertical-align: middle;">
                           <span style="font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #64748B; background-color: #F1F5F9; padding: 6px 12px; border-radius: 20px; font-family: monospace;">Inquiry Received</span>
