@@ -57,7 +57,7 @@ export default function Contact() {
     setLoading(true);
 
     try {
-      const response = await fetch('https://emailworker.hamaza7867.workers.dev', {
+      const response = await fetch('https://emailworker.zimswatchinternational.workers.dev', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
