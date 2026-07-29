@@ -1,8 +1,9 @@
 'use client';
 
-import { useState } from 'react';
-import { Send, Phone, Mail, MapPin, CheckCircle2 } from 'lucide-react';
+import { useState, useRef, useEffect } from 'react';
+import { Send, Phone, Mail, MapPin, CheckCircle2, Loader2 } from 'lucide-react';
 import ScrollReveal from '@/components/portfolio/ScrollReveal';
+import { useToast } from '@/hooks/use-toast';
 
 const projectTypes = [
   'Backend & APIs',
@@ -18,10 +19,6 @@ const budgetRanges = [
   '$3k - $5k',
   '$5k+',
 ];
-
-import { useRef, useEffect } from 'react';
-import { useToast } from '@/hooks/use-toast';
-import { Loader2 } from 'lucide-react';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
