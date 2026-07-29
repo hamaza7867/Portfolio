@@ -89,12 +89,13 @@ export default function AboutPage() {
 
       {/* Main Bio Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-20 relative z-10">
-        {/* Core Summary */}
-        <ScrollReveal className="lg:col-span-7 space-y-6">
+        {/* Core Summary (Full Width) */}
+        <ScrollReveal className="lg:col-span-12">
           <div className="card p-8 bg-surface">
             <span className="text-xs font-mono text-slate-400 block mb-4">/* Professional Statement */</span>
-            <div className="flex flex-col md:flex-row gap-6 items-center md:items-start">
-              <div className="relative w-32 h-32 md:w-36 md:h-36 rounded-xl overflow-hidden border border-[var(--accent-cyan)] shadow-[0_0_15px_rgba(33,150,243,0.2)] flex-shrink-0">
+            <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
+              {/* Profile Image with high-tech glowing border */}
+              <div className="relative w-36 h-36 md:w-44 md:h-44 rounded-2xl overflow-hidden border-2 border-[var(--accent-cyan)] shadow-[0_0_20px_rgba(33,150,243,0.25)] flex-shrink-0">
                 <img 
                   src="/ali-profile.jpeg" 
                   alt="Ali Hamza" 
@@ -113,54 +114,61 @@ export default function AboutPage() {
           </div>
         </ScrollReveal>
 
-        {/* Education & Certs */}
-        <ScrollReveal className="lg:col-span-5 space-y-6" delay={0.1}>
+        {/* Education (Half Width) */}
+        <ScrollReveal className="lg:col-span-6 flex flex-col" delay={0.1}>
           {/* Education Card */}
-          <div className="card p-6 bg-surface">
-            <div className="flex justify-between items-start mb-6">
-              <div className="flex items-center gap-3">
-                <span className="p-2 rounded bg-ground text-primary">
-                  <GraduationCap size={18} />
-                </span>
-                <h3 className="text-base font-bold" style={{ fontFamily: 'var(--font-display)', color: 'var(--text)' }}>
-                  Education
-                </h3>
-              </div>
-              <span className="font-mono text-xs text-slate-400">[01]</span>
-            </div>
-            <div className="space-y-5">
-              {education.map((edu) => (
-                <div key={edu.degree} className="border-l-2 pl-4 border-dashed border-border">
-                  <p className="text-sm font-bold" style={{ color: 'var(--text)' }}>{edu.degree}</p>
-                  <p className="text-xs mt-0.5 font-medium" style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)' }}>
-                    {edu.school} &middot; {edu.period}
-                  </p>
-                  <p className="text-xs mt-1" style={{ color: 'var(--text-secondary)' }}>{edu.desc}</p>
+          <div className="card p-6 bg-surface flex-grow flex flex-col justify-between">
+            <div>
+              <div className="flex justify-between items-start mb-6">
+                <div className="flex items-center gap-3">
+                  <span className="p-2 rounded bg-ground text-primary">
+                    <GraduationCap size={18} />
+                  </span>
+                  <h3 className="text-base font-bold" style={{ fontFamily: 'var(--font-display)', color: 'var(--text)' }}>
+                    Education
+                  </h3>
                 </div>
-              ))}
+                <span className="font-mono text-xs text-slate-400">[01]</span>
+              </div>
+              <div className="space-y-5">
+                {education.map((edu) => (
+                  <div key={edu.degree} className="border-l-2 pl-4 border-dashed border-border">
+                    <p className="text-sm font-bold" style={{ color: 'var(--text)' }}>{edu.degree}</p>
+                    <p className="text-xs mt-0.5 font-medium" style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)' }}>
+                      {edu.school} &middot; {edu.period}
+                    </p>
+                    <p className="text-xs mt-1" style={{ color: 'var(--text-secondary)' }}>{edu.desc}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
+        </ScrollReveal>
 
+        {/* Certifications (Half Width) */}
+        <ScrollReveal className="lg:col-span-6 flex flex-col" delay={0.15}>
           {/* Certifications Card */}
-          <div className="card p-6 bg-surface">
-            <div className="flex justify-between items-start mb-6">
-              <div className="flex items-center gap-3">
-                <span className="p-2 rounded bg-ground text-primary">
-                  <ShieldCheck size={18} />
-                </span>
-                <h3 className="text-base font-bold" style={{ fontFamily: 'var(--font-display)', color: 'var(--text)' }}>
-                  Certifications
-                </h3>
+          <div className="card p-6 bg-surface flex-grow flex flex-col justify-between">
+            <div>
+              <div className="flex justify-between items-start mb-6">
+                <div className="flex items-center gap-3">
+                  <span className="p-2 rounded bg-ground text-primary">
+                    <ShieldCheck size={18} />
+                  </span>
+                  <h3 className="text-base font-bold" style={{ fontFamily: 'var(--font-display)', color: 'var(--text)' }}>
+                    Certifications
+                  </h3>
+                </div>
+                <span className="font-mono text-xs text-slate-400">[02]</span>
               </div>
-              <span className="font-mono text-xs text-slate-400">[02]</span>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-              {certifications.map((cert) => (
-                <p key={cert} className="flex items-center gap-1.5" style={{ color: 'var(--text-secondary)' }}>
-                  <CheckCircle2 size={13} className="text-primary flex-shrink-0" />
-                  {cert}
-                </p>
-              ))}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                {certifications.map((cert) => (
+                  <p key={cert} className="flex items-center gap-1.5" style={{ color: 'var(--text-secondary)' }}>
+                    <CheckCircle2 size={13} className="text-primary flex-shrink-0" />
+                    {cert}
+                  </p>
+                ))}
+              </div>
             </div>
           </div>
         </ScrollReveal>
