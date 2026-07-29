@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Github, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
+import { Github, Linkedin, Mail, Phone, MapPin, Briefcase, Globe } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -45,6 +45,26 @@ export default function Footer() {
                 style={{ borderColor: 'var(--border-variant)', background: 'var(--surface-2)' }}
               >
                 <Linkedin size={16} style={{ color: 'var(--text-secondary)' }} />
+              </a>
+              <a
+                href="https://www.upwork.com/freelancers/~01e526f6593afde6af?mp_source=share"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex size-10 items-center justify-center rounded-lg border transition-colors hover:border-[var(--accent-cyan)]"
+                style={{ borderColor: 'var(--border-variant)', background: 'var(--surface-2)' }}
+                title="Upwork Profile"
+              >
+                <Briefcase size={16} style={{ color: 'var(--text-secondary)' }} />
+              </a>
+              <a
+                href="https://profiles.wordpress.org/hamaza7867/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex size-10 items-center justify-center rounded-lg border transition-colors hover:border-[var(--accent-cyan)]"
+                style={{ borderColor: 'var(--border-variant)', background: 'var(--surface-2)' }}
+                title="WordPress Profile"
+              >
+                <Globe size={16} style={{ color: 'var(--text-secondary)' }} />
               </a>
             </div>
           </div>

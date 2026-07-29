@@ -1,6 +1,6 @@
 'use client';
 
-import { Mail, Phone, MapPin, Linkedin, Github, ArrowUpRight, Send, Loader2 } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Github, ArrowUpRight, Send, Loader2, Briefcase, Globe } from 'lucide-react';
 import { useState, FormEvent } from 'react';
 import { motion } from 'framer-motion';
 import ScrollReveal from './ScrollReveal';
@@ -15,6 +15,8 @@ const contactInfo = [
 const socials = [
   { icon: Linkedin, label: 'LinkedIn', url: 'https://www.linkedin.com/in/ali-hamza-akbar' },
   { icon: Github, label: 'GitHub', url: 'https://github.com/hamaza7867' },
+  { icon: Briefcase, label: 'Upwork', url: 'https://www.upwork.com/freelancers/~01e526f6593afde6af?mp_source=share' },
+  { icon: Globe, label: 'WordPress', url: 'https://profiles.wordpress.org/hamaza7867/' },
 ];
 
 const projectTypes = [
