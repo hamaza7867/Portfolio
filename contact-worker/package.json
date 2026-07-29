@@ -1,6 +1,9 @@
 {
   "name": "portfolio-contact-worker",
   "version": "1.0.0",
+  "scripts": {
+    "build": "echo 'No build step required'"
+  },
   "devDependencies": {
     "wrangler": "^3.30.0"
   }
