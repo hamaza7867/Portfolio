@@ -10,7 +10,7 @@ import { usePathname } from 'next/navigation';
 const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
-  { label: 'Services', href: '/#services' },
+  { label: 'Services', href: '/services' },
   { label: 'Work', href: '/projects' },
   { label: 'Skills', href: '/skills' },
   { label: 'Experience', href: '/experience' },
@@ -74,7 +74,7 @@ export default function Navbar() {
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => {
-            const isActive = pathname === link.href || (link.href.startsWith('/#') && pathname === '/');
+            const isActive = pathname === link.href;
             return (
               <Link
                 key={link.href}

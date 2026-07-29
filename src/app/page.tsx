@@ -2,7 +2,6 @@
 
 import Navbar from '@/components/portfolio/Navbar';
 import Hero from '@/components/portfolio/Hero';
-import Services from '@/components/portfolio/Services';
 import ParticlesBackground from '@/components/portfolio/ParticlesBackground';
 import ScrollReveal from '@/components/portfolio/ScrollReveal';
 import Link from 'next/link';
@@ -158,8 +157,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services Section */}
-      <Services />
+
 
       {/* Work Process timeline */}
       <section className="py-24 md:py-32 relative">

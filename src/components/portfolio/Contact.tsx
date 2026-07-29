@@ -50,26 +50,47 @@ export default function Contact() {
   const widgetIdRef = useRef<string | null>(null);
 
   useEffect(() => {
-    // Load Turnstile script dynamically
-    const script = document.createElement('script');
-    script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
-    script.async = true;
-    script.defer = true;
-    document.body.appendChild(script);
-
-    script.onload = () => {
-      if ((window as any).turnstile && turnstileRef.current) {
-        widgetIdRef.current = (window as any).turnstile.render(turnstileRef.current, {
-          sitekey: '0x4AAAAAAEA394KvZ5B8o743',
-          callback: (token: string) => {
-            setTurnstileToken(token);
-          },
-        });
+    const renderWidget = () => {
+      if ((window as any).turnstile && turnstileRef.current && !widgetIdRef.current) {
+        try {
+          widgetIdRef.current = (window as any).turnstile.render(turnstileRef.current, {
+            sitekey: '0x4AAAAAAEA394KvZ5B8o743',
+            callback: (token: string) => {
+              setTurnstileToken(token);
+            },
+          });
+        } catch (e) {
+          console.error('Turnstile render error:', e);
+        }
       }
     };
 
+    if ((window as any).turnstile) {
+      renderWidget();
+    } else {
+      let script = document.querySelector('script[src*="turnstile/v0/api.js"]') as HTMLScriptElement;
+      if (!script) {
+        script = document.createElement('script');
+        script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+        script.async = true;
+        script.defer = true;
+        document.body.appendChild(script);
+      }
+      script.addEventListener('load', renderWidget);
+      return () => {
+        script.removeEventListener('load', renderWidget);
+      };
+    }
+
     return () => {
-      document.body.removeChild(script);
+      if (widgetIdRef.current && (window as any).turnstile) {
+        try {
+          (window as any).turnstile.remove(widgetIdRef.current);
+          widgetIdRef.current = null;
+        } catch (e) {
+          // ignore
+        }
+      }
     };
   }, []);
 

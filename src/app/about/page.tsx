@@ -93,12 +93,23 @@ export default function AboutPage() {
         <ScrollReveal className="lg:col-span-7 space-y-6">
           <div className="card p-8 bg-surface">
             <span className="text-xs font-mono text-slate-400 block mb-4">/* Professional Statement */</span>
-            <p className="text-base md:text-lg leading-relaxed font-normal" style={{ color: 'var(--text-secondary)' }}>
-              Full-Stack web & WordPress Developer focused on backend systems and SaaS product architecture. Built Voxis, a multi-tenant voice-automation platform with a sub-400ms real-time pipeline, and Voiceovers Digital, a long-form AI narration SaaS. Shipped a low-latency Go microservice on Google Cloud Run and an open-source WordPress plugin with its own Astro marketing site.
-            </p>
-            <p className="text-base md:text-lg leading-relaxed mt-4 font-normal" style={{ color: 'var(--text-secondary)' }}>
-              Comfortable owning a project end to end — architecture, backend logic, API design, containerization, and deployment — and increasingly works alongside AI coding agents to speed up implementation while keeping design decisions, code review, and system architecture in his own hands.
-            </p>
+            <div className="flex flex-col md:flex-row gap-6 items-center md:items-start">
+              <div className="relative w-32 h-32 md:w-36 md:h-36 rounded-xl overflow-hidden border border-[var(--accent-cyan)] shadow-[0_0_15px_rgba(33,150,243,0.2)] flex-shrink-0">
+                <img 
+                  src="/ali-profile.jpeg" 
+                  alt="Ali Hamza" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="flex-1 space-y-4">
+                <p className="text-base md:text-lg leading-relaxed font-normal" style={{ color: 'var(--text-secondary)' }}>
+                  Full-Stack web & WordPress Developer focused on backend systems and SaaS product architecture. Built Voxis, a multi-tenant voice-automation platform with a sub-400ms real-time pipeline, and Voiceovers Digital, a long-form AI narration SaaS. Shipped a low-latency Go microservice on Google Cloud Run and an open-source WordPress plugin with its own Astro marketing site.
+                </p>
+                <p className="text-base md:text-lg leading-relaxed font-normal" style={{ color: 'var(--text-secondary)' }}>
+                  Comfortable owning a project end to end — architecture, backend logic, API design, containerization, and deployment — and increasingly works alongside AI coding agents to speed up implementation while keeping design decisions, code review, and system architecture in his own hands.
+                </p>
+              </div>
+            </div>
           </div>
         </ScrollReveal>
 
