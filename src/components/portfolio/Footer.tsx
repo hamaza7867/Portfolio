@@ -88,8 +88,8 @@ export default function Footer() {
         </div>
         <hr className="my-10" style={{ borderColor: 'var(--border-variant)' }} />
         <div className="flex flex-col items-center justify-between gap-3 text-xs sm:flex-row" style={{ color: 'var(--text-secondary)' }}>
-          <p className="mono">&copy; {new Date().getFullYear()} Ali Hamza — Software Engineer</p>
-          <p className="mono">Built with Next.js 16 · Tailwind CSS · TypeScript</p>
+          <p className="font-mono">&copy; {new Date().getFullYear()} Ali Hamza — Software Engineer</p>
+          <p className="font-mono text-[10px] tracking-wider uppercase">Built with Next.js 16 · Tailwind CSS · TypeScript</p>
         </div>
       </div>
     </footer>
