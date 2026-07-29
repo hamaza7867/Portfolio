@@ -56,19 +56,18 @@ export default {
 
       const clientIp = request.headers.get('CF-Connecting-IP') || '';
       
-      const verifyFormData = new FormData();
-      verifyFormData.append('secret', turnstileSecret);
-      verifyFormData.append('response', turnstileToken);
-      verifyFormData.append('remoteip', clientIp);
-
       const verifyResponse = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
         method: 'POST',
-        body: verifyFormData,
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `secret=${encodeURIComponent(turnstileSecret)}&response=${encodeURIComponent(turnstileToken)}&remoteip=${encodeURIComponent(clientIp)}`,
       });
 
       const verifyResult = await verifyResponse.json() as { success: boolean; 'error-codes'?: string[] };
       if (!verifyResult.success) {
-        return new Response(JSON.stringify({ error: 'Verification failed. Please try again.' }), {
+        const errorCodes = verifyResult['error-codes']?.join(', ') || 'unknown_error';
+        return new Response(JSON.stringify({ error: `Verification failed (${errorCodes}). Please try again.` }), {
           status: 400,
           headers: { 'Content-Type': 'application/json', ...corsHeaders },
         });
@@ -92,7 +91,7 @@ export default {
         },
         body: JSON.stringify({
           from: '"Ali Hamza Portfolio" <portfolio-contact@cyphex.agency>',
-          to: 'hamaza7867@gmail.com',
+          to: 'hamza8898000@gmail.com',
           subject: `⚡ New Inquiry: ${projectType} from ${name}`,
           html: `
             <div style="background-color: #F8FAFC; padding: 40px 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #1E293B;">
