@@ -60,7 +60,7 @@ export default function Contact() {
     script.onload = () => {
       if ((window as any).turnstile && turnstileRef.current) {
         widgetIdRef.current = (window as any).turnstile.render(turnstileRef.current, {
-          sitekey: '1x00000000000000000000AA', // fallback testing sitekey
+          sitekey: '0x4AAAAAAEA394KvZ5B8o743',
           callback: (token: string) => {
             setTurnstileToken(token);
           },
@@ -218,7 +218,7 @@ export default function Contact() {
 
           {/* Right — Form */}
           <ScrollReveal delay={0.2} className="lg:col-span-7">
-            <div className="card p-8 bg-surface border-variant shadow-lg shadow-slate-100/50">
+            <div className="card p-5 sm:p-8 bg-surface border-variant shadow-lg shadow-slate-100/50">
               <p className="text-[10px] font-bold uppercase tracking-[0.15em] mb-6" style={{ color: 'var(--accent-cyan)', fontFamily: 'var(--font-mono)' }}>
                 Send a message
               </p>
@@ -349,7 +349,7 @@ export default function Contact() {
                     }}
                   />
                 {/* Cloudflare Turnstile Verification */}
-                <div className="flex justify-start my-4">
+                <div className="flex justify-start my-4 overflow-hidden w-full origin-left max-w-full scale-[0.85] sm:scale-100">
                   <div ref={turnstileRef} />
                 </div>
 
