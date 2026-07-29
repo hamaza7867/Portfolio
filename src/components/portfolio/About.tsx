@@ -112,7 +112,7 @@ function SkillTag({ skill, delay }: { skill: string; delay: number }) {
 export default function About() {
   return (
     <section id="about" className="py-24 md:py-32 relative">
-      <div className="container mx-auto px-6 max-w-5xl">
+      <div className="max-w-[1120px] mx-auto px-6">
         <ScrollReveal>
           <div className="flex items-center gap-3 mb-3">
             <div
@@ -135,37 +135,47 @@ export default function About() {
         </ScrollReveal>
 
         {/* Bio + Education/Certs side by side */}
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 mb-28">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 mb-28 items-start">
           {/* Bio — wider column */}
           <ScrollReveal delay={0.1} className="lg:col-span-3">
-            <div className="space-y-5">
-              <p
-                className="text-base md:text-lg leading-relaxed"
-                style={{ color: 'var(--text-secondary)' }}
-              >
-                I&apos;m a software engineer based in Lahore, Pakistan. I
-                mostly work on backend systems and SaaS products, but I also
-                do full-stack work when a project needs it.
-              </p>
-              <p
-                className="text-base md:text-lg leading-relaxed"
-                style={{ color: 'var(--text-secondary)' }}
-              >
-                My final year project was Voxis — a multi-tenant voice
-                automation platform that handles real-time calls using Go
-                microservices, Django, and Angular. I also built
-                Voiceovers Digital, an AI narration SaaS that converts long
-                scripts into studio-quality audio.
-              </p>
-              <p
-                className="text-base md:text-lg leading-relaxed"
-                style={{ color: 'var(--text-secondary)' }}
-              >
-                On the side, I take on freelance projects building WordPress
-                sites and providing performance consulting for businesses.
-                I&apos;m currently studying Information Engineering Technology
-                at the University of Lahore.
-              </p>
+            <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
+              {/* Profile Image with high-tech glowing border */}
+              <div className="relative w-36 h-36 md:w-44 md:h-44 rounded-2xl overflow-hidden border-2 border-[var(--accent-cyan)] shadow-[0_0_20px_rgba(33,150,243,0.25)] flex-shrink-0">
+                <img 
+                  src="/ali-profile.jpeg" 
+                  alt="Ali Hamza" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="space-y-5 flex-1">
+                <p
+                  className="text-base md:text-lg leading-relaxed"
+                  style={{ color: 'var(--text-secondary)' }}
+                >
+                  I&apos;m a <strong>Full-Stack web & WordPress Developer</strong> based in Lahore, Pakistan. I
+                  mostly work on backend systems and SaaS products, but I also
+                  do full-stack work when a project needs it.
+                </p>
+                <p
+                  className="text-base md:text-lg leading-relaxed"
+                  style={{ color: 'var(--text-secondary)' }}
+                >
+                  My final year project was Voxis — a multi-tenant voice
+                  automation platform that handles real-time calls using Go
+                  microservices, Django, and Angular. I also built
+                  Voiceovers Digital, an AI narration SaaS that converts long
+                  scripts into studio-quality audio.
+                </p>
+                <p
+                  className="text-base md:text-lg leading-relaxed"
+                  style={{ color: 'var(--text-secondary)' }}
+                >
+                  On the side, I take on freelance projects building WordPress
+                  sites and providing performance consulting for businesses.
+                  I&apos;m currently studying Information Engineering Technology
+                  at the University of Lahore.
+                </p>
+              </div>
             </div>
           </ScrollReveal>
 

@@ -318,12 +318,17 @@ const projects = [
 
 const categories = ['All', 'SaaS', 'AI', 'OSS', 'Web'];
 
+const sortedProjects = [
+  ...projects.filter(p => !p.name.toLowerCase().includes('cyphex')),
+  ...projects.filter(p => p.name.toLowerCase().includes('cyphex'))
+];
+
 export default function ProjectsPage() {
   const [activeTab, setActiveTab] = useState('All');
 
   const filtered = activeTab === 'All'
-    ? projects
-    : projects.filter(p => p.category === activeTab);
+    ? sortedProjects
+    : sortedProjects.filter(p => p.category === activeTab);
 
   return (
     <div className="py-16 md:py-24 max-w-[1120px] mx-auto px-6">

@@ -94,7 +94,7 @@ export default function AboutPage() {
           <div className="card p-8 bg-surface">
             <span className="text-xs font-mono text-slate-400 block mb-4">/* Professional Statement */</span>
             <p className="text-base md:text-lg leading-relaxed font-normal" style={{ color: 'var(--text-secondary)' }}>
-              Software engineer focused on backend systems and SaaS product architecture. Built Voxis, a multi-tenant voice-automation platform with a sub-400ms real-time pipeline, and Voiceovers Digital, a long-form AI narration SaaS. Shipped a low-latency Go microservice on Google Cloud Run and an open-source WordPress plugin with its own Astro marketing site.
+              Full-Stack web & WordPress Developer focused on backend systems and SaaS product architecture. Built Voxis, a multi-tenant voice-automation platform with a sub-400ms real-time pipeline, and Voiceovers Digital, a long-form AI narration SaaS. Shipped a low-latency Go microservice on Google Cloud Run and an open-source WordPress plugin with its own Astro marketing site.
             </p>
             <p className="text-base md:text-lg leading-relaxed mt-4 font-normal" style={{ color: 'var(--text-secondary)' }}>
               Comfortable owning a project end to end — architecture, backend logic, API design, containerization, and deployment — and increasingly works alongside AI coding agents to speed up implementation while keeping design decisions, code review, and system architecture in his own hands.
