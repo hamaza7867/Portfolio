@@ -39,6 +39,7 @@ export default function Contact() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [website, setWebsite] = useState(''); // Honeypot state
   const [loading, setLoading] = useState(false);
   const { toast } = useToast();
 
@@ -67,6 +68,7 @@ export default function Contact() {
           projectType: selectedType,
           budget: selectedBudget,
           message,
+          website, // Honeypot payload
         }),
       });
 
@@ -214,6 +216,18 @@ export default function Contact() {
                       }}
                     />
                   </div>
+                </div>
+
+                {/* Honeypot field for spam prevention */}
+                <div style={{ display: 'none' }} aria-hidden="true">
+                  <input
+                    type="text"
+                    name="website"
+                    value={website}
+                    onChange={(e) => setWebsite(e.target.value)}
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
                 </div>
 
                 {/* Project Type Selector */}
