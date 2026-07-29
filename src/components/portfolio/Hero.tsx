@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { ArrowRight, FileDown } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
@@ -11,6 +12,49 @@ const stats = [
 ];
 
 export default function Hero() {
+  const words = [
+    'SaaS products.',
+    'backend systems.',
+    'WordPress plugins.',
+    'WordPress websites.',
+    'optimized websites.',
+    'scalable APIs.',
+  ];
+
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [currentText, setCurrentText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [typingSpeed, setTypingSpeed] = useState(80);
+
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+    const handleType = () => {
+      const fullWord = words[currentWordIndex];
+      if (!isDeleting) {
+        setCurrentText(fullWord.substring(0, currentText.length + 1));
+        setTypingSpeed(80);
+
+        if (currentText === fullWord) {
+          timer = setTimeout(() => setIsDeleting(true), 2000);
+          return;
+        }
+      } else {
+        setCurrentText(fullWord.substring(0, currentText.length - 1));
+        setTypingSpeed(40);
+
+        if (currentText === '') {
+          setIsDeleting(false);
+          setCurrentWordIndex((prev) => (prev + 1) % words.length);
+        }
+      }
+
+      timer = setTimeout(handleType, typingSpeed);
+    };
+
+    timer = setTimeout(handleType, typingSpeed);
+    return () => clearTimeout(timer);
+  }, [currentText, isDeleting, currentWordIndex, typingSpeed]);
+
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden py-16 md:py-24 bg-background">
       {/* Editorial Grid Grid lines background */}
@@ -37,10 +81,14 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-4xl sm:text-6xl font-bold tracking-tight leading-[1.1]"
+            className="text-4xl sm:text-6xl font-bold tracking-tight leading-[1.1] min-h-[100px] sm:min-h-[140px]"
             style={{ fontFamily: 'var(--font-display)', color: 'var(--text)' }}
           >
-            I build backend systems and <span style={{ color: 'var(--accent-cyan)' }}>SaaS products</span> end to end.
+            I build{' '}
+            <span style={{ color: 'var(--accent-cyan)' }}>
+              {currentText}
+            </span>
+            <span className="animate-pulse" style={{ color: 'var(--accent-cyan)' }}>|</span>
           </motion.h1>
 
           <motion.p

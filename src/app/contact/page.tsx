@@ -163,9 +163,9 @@ export default function ContactPage() {
         {/* Info panel */}
         <ScrollReveal className="lg:col-span-4 space-y-6">
           <div className="card p-6 bg-surface border-variant">
-            <h3 className="text-sm font-bold mb-6" style={{ fontFamily: 'var(--font-display)', color: 'var(--text)' }}>
+            <h2 className="text-sm font-bold mb-6" style={{ fontFamily: 'var(--font-display)', color: 'var(--text)' }}>
               Direct contact
-            </h3>
+            </h2>
             <ul className="space-y-4 text-xs">
               <li>
                 <a href="mailto:Hamaza7867@gmail.com" className="flex items-center gap-3 transition-colors hover:text-[var(--accent-cyan)]" style={{ color: 'var(--text-secondary)' }}>

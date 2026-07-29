@@ -61,6 +61,7 @@ export default function SkillsPage() {
       </ScrollReveal>
 
       {/* Grid of Categories */}
+      <h2 className="sr-only">Technical Skill Areas</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {skillCategories.map((cat, i) => {
           const Icon = cat.icon;

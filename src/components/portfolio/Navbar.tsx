@@ -134,6 +134,7 @@ export default function Navbar() {
             onClick={() => setIsOpen(!isOpen)}
             className="w-8 h-8 flex items-center justify-center rounded-lg cursor-pointer"
             style={{ color: 'var(--text)' }}
+            aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
           >
             {isOpen ? <X size={20} /> : <Menu size={20} />}
           </button>

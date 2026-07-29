@@ -70,6 +70,7 @@ export default function ExperiencePage() {
       </ScrollReveal>
 
       {/* Vertical Git commit timeline */}
+      <h2 className="sr-only">Work Timeline</h2>
       <div ref={containerRef} className="relative ml-4 pl-8 space-y-12">
         {/* Background Track Line */}
         <div 

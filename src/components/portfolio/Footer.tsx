@@ -34,6 +34,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="flex size-10 items-center justify-center rounded-lg border transition-colors hover:border-[var(--accent-cyan)]"
                 style={{ borderColor: 'var(--border-variant)', background: 'var(--surface-2)' }}
+                aria-label="GitHub Profile"
               >
                 <Github size={16} style={{ color: 'var(--text-secondary)' }} />
               </a>
@@ -43,6 +44,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="flex size-10 items-center justify-center rounded-lg border transition-colors hover:border-[var(--accent-cyan)]"
                 style={{ borderColor: 'var(--border-variant)', background: 'var(--surface-2)' }}
+                aria-label="LinkedIn Profile"
               >
                 <Linkedin size={16} style={{ color: 'var(--text-secondary)' }} />
               </a>
@@ -53,6 +55,7 @@ export default function Footer() {
                 className="flex size-10 items-center justify-center rounded-lg border transition-colors hover:border-[var(--accent-cyan)]"
                 style={{ borderColor: 'var(--border-variant)', background: 'var(--surface-2)' }}
                 title="Upwork Profile"
+                aria-label="Upwork Profile"
               >
                 <Briefcase size={16} style={{ color: 'var(--text-secondary)' }} />
               </a>
@@ -63,6 +66,7 @@ export default function Footer() {
                 className="flex size-10 items-center justify-center rounded-lg border transition-colors hover:border-[var(--accent-cyan)]"
                 style={{ borderColor: 'var(--border-variant)', background: 'var(--surface-2)' }}
                 title="WordPress Profile"
+                aria-label="WordPress Profile"
               >
                 <Globe size={16} style={{ color: 'var(--text-secondary)' }} />
               </a>

@@ -237,24 +237,25 @@ export default function About() {
                   Certifications
                 </h3>
               </div>
-              <div className="space-y-2">
                 {[
-                  'The Full Stack — Meta',
-                  'Intro to Android Dev — Meta',
-                  'AI For Everyone — DeepLearning.AI',
-                  'Cybersecurity Essentials — IBM',
-                  'Basics of Python — UniAthena',
-                  'WordPress & Freelancing — DigiSkills',
+                  { name: 'The Full Stack — Meta', url: 'https://www.coursera.org/professional-certificates/meta-full-stack-developer' },
+                  { name: 'Intro to Android Dev — Meta', url: 'https://www.coursera.org/learn/introduction-to-android-mobile-application-development' },
+                  { name: 'AI For Everyone — DeepLearning.AI', url: 'https://www.coursera.org/learn/ai-for-everyone' },
+                  { name: 'Cybersecurity Essentials — IBM', url: 'https://www.coursera.org/learn/ibm-cybersecurity-credentials-essentials' },
+                  { name: 'Basics of Python — UniAthena', url: 'https://uniathena.com/short-courses/basics-python' },
+                  { name: 'WordPress & Freelancing — DigiSkills', url: 'https://digiskills.pk/' },
                 ].map((cert) => (
-                  <p
-                    key={cert}
-                    className="text-xs py-0.5"
+                  <a
+                    key={cert.name}
+                    href={cert.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block text-xs py-0.5 transition-colors hover:text-[var(--accent-cyan)] cursor-pointer"
                     style={{ color: 'var(--text-secondary)' }}
                   >
-                    {cert}
-                  </p>
+                    {cert.name} &rarr;
+                  </a>
                 ))}
-              </div>
             </div>
           </ScrollReveal>
         </div>

@@ -104,10 +104,13 @@ export default function AboutPage() {
               </div>
               <div className="flex-1 space-y-4">
                 <p className="text-base md:text-lg leading-relaxed font-normal" style={{ color: 'var(--text-secondary)' }}>
-                  Full-Stack web & WordPress Developer focused on backend systems and SaaS product architecture. Built Voxis, a multi-tenant voice-automation platform with a sub-400ms real-time pipeline, and Voiceovers Digital, a long-form AI narration SaaS. Shipped a low-latency Go microservice on Google Cloud Run and an open-source WordPress plugin with its own Astro marketing site.
+                  I am a Full-Stack web & WordPress Developer focused on high-performance backend systems and SaaS product architecture. Over the last 3+ years, I have specialized in building reliable, low-latency applications that solve real-world problems. Whether it is constructing voice-automation pipelines or scaling multi-tenant database infrastructures, I enjoy diving deep into technical challenges.
                 </p>
                 <p className="text-base md:text-lg leading-relaxed font-normal" style={{ color: 'var(--text-secondary)' }}>
-                  Comfortable owning a project end to end (architecture, backend logic, API design, containerization, and deployment) and increasingly works alongside AI coding agents to speed up implementation while keeping design decisions, code review, and system architecture in his own hands.
+                  My flagship project, Voxis, is a multi-tenant voice-dialing platform with a sub-400ms conversational audio pipeline integrating WebRTC and Twilio, running Go microservices on Google Cloud. I also launched Voiceovers Digital, an AI long-form script narration SaaS, and Cyphex Mail, an agency-focused email automation tool.
+                </p>
+                <p className="text-base md:text-lg leading-relaxed font-normal" style={{ color: 'var(--text-secondary)' }}>
+                  I believe in shipping clean, documented, and fully tested code. I frequently collaborate with modern AI tools to accelerate development workflows, allowing me to focus on system design, security, and performance-critical pathways.
                 </p>
               </div>
             </div>
@@ -124,9 +127,9 @@ export default function AboutPage() {
                   <span className="p-2 rounded bg-ground text-primary">
                     <GraduationCap size={18} />
                   </span>
-                  <h3 className="text-base font-bold" style={{ fontFamily: 'var(--font-display)', color: 'var(--text)' }}>
+                  <h2 className="text-base font-bold" style={{ fontFamily: 'var(--font-display)', color: 'var(--text)' }}>
                     Education
-                  </h3>
+                  </h2>
                 </div>
                 <span className="font-mono text-xs text-slate-400">[01]</span>
               </div>
@@ -155,19 +158,37 @@ export default function AboutPage() {
                   <span className="p-2 rounded bg-ground text-primary">
                     <ShieldCheck size={18} />
                   </span>
-                  <h3 className="text-base font-bold" style={{ fontFamily: 'var(--font-display)', color: 'var(--text)' }}>
+                  <h2 className="text-base font-bold" style={{ fontFamily: 'var(--font-display)', color: 'var(--text)' }}>
                     Certifications
-                  </h3>
+                  </h2>
                 </div>
                 <span className="font-mono text-xs text-slate-400">[02]</span>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-                {certifications.map((cert) => (
-                  <p key={cert} className="flex items-center gap-1.5" style={{ color: 'var(--text-secondary)' }}>
-                    <CheckCircle2 size={13} className="text-primary flex-shrink-0" />
-                    {cert}
-                  </p>
-                ))}
+                <a href="https://www.coursera.org/professional-certificates/meta-front-end-developer" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-primary transition-colors" style={{ color: 'var(--text-secondary)' }}>
+                  <CheckCircle2 size={13} className="text-primary flex-shrink-0" />
+                  The Full Stack | Meta
+                </a>
+                <a href="https://www.coursera.org/learn/introduction-to-android-mobile-application-development" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-primary transition-colors" style={{ color: 'var(--text-secondary)' }}>
+                  <CheckCircle2 size={13} className="text-primary flex-shrink-0" />
+                  Intro to Android Dev | Meta
+                </a>
+                <a href="https://www.coursera.org/learn/ai-for-everyone" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-primary transition-colors" style={{ color: 'var(--text-secondary)' }}>
+                  <CheckCircle2 size={13} className="text-primary flex-shrink-0" />
+                  AI For Everyone | DeepLearning.AI
+                </a>
+                <a href="https://www.coursera.org/specializations/ibm-cybersecurity-fundamentals-practicum" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-primary transition-colors" style={{ color: 'var(--text-secondary)' }}>
+                  <CheckCircle2 size={13} className="text-primary flex-shrink-0" />
+                  Cybersecurity Essentials | IBM
+                </a>
+                <a href="https://uniathena.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-primary transition-colors" style={{ color: 'var(--text-secondary)' }}>
+                  <CheckCircle2 size={13} className="text-primary flex-shrink-0" />
+                  Basics of Python | UniAthena
+                </a>
+                <a href="https://www.digiskills.pk" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-primary transition-colors" style={{ color: 'var(--text-secondary)' }}>
+                  <CheckCircle2 size={13} className="text-primary flex-shrink-0" />
+                  WordPress & Freelancing | DigiSkills
+                </a>
               </div>
             </div>
           </div>
