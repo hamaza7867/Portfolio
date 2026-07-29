@@ -1,7 +1,7 @@
 'use client';
 
 import { Mail, Phone, MapPin, Linkedin, Github, ArrowUpRight, Send, Loader2, Briefcase, Globe } from 'lucide-react';
-import { useState, FormEvent } from 'react';
+import { useState, FormEvent, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import ScrollReveal from './ScrollReveal';
 import { useToast } from '@/hooks/use-toast';
@@ -45,12 +45,49 @@ export default function Contact() {
   const [loading, setLoading] = useState(false);
   const { toast } = useToast();
 
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const turnstileRef = useRef<HTMLDivElement>(null);
+  const widgetIdRef = useRef<string | null>(null);
+
+  useEffect(() => {
+    // Load Turnstile script dynamically
+    const script = document.createElement('script');
+    script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+
+    script.onload = () => {
+      if ((window as any).turnstile && turnstileRef.current) {
+        widgetIdRef.current = (window as any).turnstile.render(turnstileRef.current, {
+          sitekey: '1x00000000000000000000AA', // fallback testing sitekey
+          callback: (token: string) => {
+            setTurnstileToken(token);
+          },
+        });
+      }
+    };
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!name || !email || !message) {
       toast({
         title: 'Error',
         description: 'Please fill in all required fields.',
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    if (!turnstileToken) {
+      toast({
+        title: 'Verification Required',
+        description: 'Please complete the CAPTCHA verification.',
         variant: 'destructive',
       });
       return;
@@ -71,6 +108,7 @@ export default function Contact() {
           budget: selectedBudget,
           message,
           website, // Honeypot payload
+          turnstileToken, // CAPTCHA token
         }),
       });
 
@@ -84,6 +122,12 @@ export default function Contact() {
         setName('');
         setEmail('');
         setMessage('');
+        
+        // Reset turnstile
+        if ((window as any).turnstile && widgetIdRef.current) {
+          (window as any).turnstile.reset(widgetIdRef.current);
+        }
+        setTurnstileToken(null);
       } else {
         throw new Error(data.error || 'Failed to send inquiry.');
       }
@@ -304,6 +348,9 @@ export default function Contact() {
                       borderRadius: '8px',
                     }}
                   />
+                {/* Cloudflare Turnstile Verification */}
+                <div className="flex justify-start my-4">
+                  <div ref={turnstileRef} />
                 </div>
 
                 <button

@@ -1,5 +1,6 @@
 export interface Env {
   CYPHEX_MAIL_API_KEY: string;
+  TURNSTILE_SECRET_KEY?: string;
 }
 
 export default {
@@ -30,15 +31,45 @@ export default {
         budget: string;
         message: string;
         website?: string; // Honeypot field (hidden field for spam protection)
+        turnstileToken?: string; // Turnstile captcha token
       };
 
-      const { name, email, projectType, budget, message, website } = data;
+      const { name, email, projectType, budget, message, website, turnstileToken } = data;
 
       // 1. Honeypot Spam Protection
       if (website) {
         // Return 200 so spambots believe they succeeded, but silently discard the mail
         return new Response(JSON.stringify({ success: true, note: 'Spam filtered' }), {
           status: 200,
+          headers: { 'Content-Type': 'application/json', ...corsHeaders },
+        });
+      }
+
+      // 2. Turnstile CAPTCHA Verification
+      const turnstileSecret = env.TURNSTILE_SECRET_KEY || '1x0000000000000000000000000000000AA'; // testing key
+      if (!turnstileToken) {
+        return new Response(JSON.stringify({ error: 'Verification token is missing' }), {
+          status: 400,
+          headers: { 'Content-Type': 'application/json', ...corsHeaders },
+        });
+      }
+
+      const clientIp = request.headers.get('CF-Connecting-IP') || '';
+      
+      const verifyFormData = new FormData();
+      verifyFormData.append('secret', turnstileSecret);
+      verifyFormData.append('response', turnstileToken);
+      verifyFormData.append('remoteip', clientIp);
+
+      const verifyResponse = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+        method: 'POST',
+        body: verifyFormData,
+      });
+
+      const verifyResult = await verifyResponse.json() as { success: boolean; 'error-codes'?: string[] };
+      if (!verifyResult.success) {
+        return new Response(JSON.stringify({ error: 'Verification failed. Please try again.' }), {
+          status: 400,
           headers: { 'Content-Type': 'application/json', ...corsHeaders },
         });
       }
@@ -60,7 +91,7 @@ export default {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          from: 'Ali Hamza Portfolio <portfolio-contact@cyphex.agency>',
+          from: '"Ali Hamza Portfolio" <portfolio-contact@cyphex.agency>',
           to: 'hamaza7867@gmail.com',
           subject: `⚡ New Inquiry: ${projectType} from ${name}`,
           html: `
@@ -136,7 +167,7 @@ export default {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            from: 'Ali Hamza Portfolio <portfolio-contact@cyphex.agency>',
+            from: '"Ali Hamza Portfolio" <portfolio-contact@cyphex.agency>',
             to: email,
             subject: 'Inquiry Received - Ali Hamza',
             html: `
