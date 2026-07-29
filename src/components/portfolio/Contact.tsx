@@ -50,7 +50,9 @@ export default function Contact() {
   const widgetIdRef = useRef<string | null>(null);
 
   useEffect(() => {
-    const renderWidget = () => {
+    let interval: any;
+    
+    const tryRender = () => {
       if ((window as any).turnstile && turnstileRef.current && !widgetIdRef.current) {
         try {
           widgetIdRef.current = (window as any).turnstile.render(turnstileRef.current, {
@@ -59,30 +61,31 @@ export default function Contact() {
               setTurnstileToken(token);
             },
           });
+          if (interval) clearInterval(interval);
         } catch (e) {
           console.error('Turnstile render error:', e);
         }
       }
     };
 
-    if ((window as any).turnstile) {
-      renderWidget();
-    } else {
-      let script = document.querySelector('script[src*="turnstile/v0/api.js"]') as HTMLScriptElement;
-      if (!script) {
-        script = document.createElement('script');
-        script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
-        script.async = true;
-        script.defer = true;
-        document.body.appendChild(script);
-      }
-      script.addEventListener('load', renderWidget);
-      return () => {
-        script.removeEventListener('load', renderWidget);
-      };
+    // Try rendering immediately
+    tryRender();
+
+    // Setup a poller to check if turnstile is loaded (handles SPA transitions perfectly)
+    interval = setInterval(tryRender, 250);
+
+    // Append script if not present
+    let script = document.querySelector('script[src*="turnstile/v0/api.js"]') as HTMLScriptElement;
+    if (!script) {
+      script = document.createElement('script');
+      script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+      script.async = true;
+      script.defer = true;
+      document.body.appendChild(script);
     }
 
     return () => {
+      if (interval) clearInterval(interval);
       if (widgetIdRef.current && (window as any).turnstile) {
         try {
           (window as any).turnstile.remove(widgetIdRef.current);
