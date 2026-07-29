@@ -189,26 +189,30 @@ export default function ContactPage() {
           <form onSubmit={handleSubmit} className="card p-8 bg-surface border-variant space-y-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-[10px] uppercase tracking-wider font-semibold mb-2" style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)' }}>Your Name</label>
+                <label htmlFor="user-name" className="block text-[10px] uppercase tracking-wider font-semibold mb-2 cursor-pointer" style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)' }}>Your Name</label>
                 <input
+                  id="user-name"
+                  name="name"
                   type="text"
                   required
                   placeholder="John Doe"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-4 py-3 rounded-lg border bg-ground text-xs transition-all focus:outline-none focus:border-[var(--accent-cyan)]"
+                  className="w-full px-4 py-3 rounded-lg border bg-ground text-base transition-all focus:outline-none focus:border-[var(--accent-cyan)]"
                   style={{ borderColor: 'var(--border-variant)', color: 'var(--text)' }}
                 />
               </div>
               <div>
-                <label className="block text-[10px] uppercase tracking-wider font-semibold mb-2" style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)' }}>Your Email</label>
+                <label htmlFor="user-email" className="block text-[10px] uppercase tracking-wider font-semibold mb-2 cursor-pointer" style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)' }}>Your Email</label>
                 <input
+                  id="user-email"
+                  name="email"
                   type="email"
                   required
                   placeholder="john@example.com"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-4 py-3 rounded-lg border bg-ground text-xs transition-all focus:outline-none focus:border-[var(--accent-cyan)]"
+                  className="w-full px-4 py-3 rounded-lg border bg-ground text-base transition-all focus:outline-none focus:border-[var(--accent-cyan)]"
                   style={{ borderColor: 'var(--border-variant)', color: 'var(--text)' }}
                 />
               </div>
@@ -216,7 +220,7 @@ export default function ContactPage() {
 
             {/* Project Type Selector */}
             <div>
-              <label className="block text-[10px] uppercase tracking-wider font-semibold mb-3" style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)' }}>Project Type</label>
+              <span className="block text-[10px] uppercase tracking-wider font-semibold mb-3" style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)' }}>Project Type</span>
               <div className="flex flex-wrap gap-2">
                 {projectTypes.map((type) => {
                   const isSelected = selectedType === type;
@@ -242,7 +246,7 @@ export default function ContactPage() {
 
             {/* Budget Selector */}
             <div>
-              <label className="block text-[10px] uppercase tracking-wider font-semibold mb-3" style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)' }}>Budget Range</label>
+              <span className="block text-[10px] uppercase tracking-wider font-semibold mb-3" style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)' }}>Budget Range</span>
               <div className="flex flex-wrap gap-2">
                 {budgetRanges.map((budget) => {
                   const isSelected = selectedBudget === budget;
@@ -268,14 +272,16 @@ export default function ContactPage() {
 
             {/* Message */}
             <div>
-              <label className="block text-[10px] uppercase tracking-wider font-semibold mb-2" style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)' }}>Project Details</label>
+              <label htmlFor="user-message" className="block text-[10px] uppercase tracking-wider font-semibold mb-2 cursor-pointer" style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)' }}>Project Details</label>
               <textarea
+                id="user-message"
+                name="message"
                 required
                 rows={5}
                 placeholder="Tell me about what you are building, timeline requirements, and functional specifications..."
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                className="w-full px-4 py-3 rounded-lg border bg-ground text-xs transition-all focus:outline-none focus:border-[var(--accent-cyan)]"
+                className="w-full px-4 py-3 rounded-lg border bg-ground text-base transition-all focus:outline-none focus:border-[var(--accent-cyan)]"
                 style={{ borderColor: 'var(--border-variant)', color: 'var(--text)' }}
               />
             </div>

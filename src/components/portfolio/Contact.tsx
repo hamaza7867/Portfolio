@@ -249,16 +249,18 @@ export default function Contact() {
               <form className="space-y-6" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-[10px] font-bold uppercase tracking-[0.1em] mb-2" style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)' }}>
+                    <label htmlFor="home-user-name" className="block text-[10px] font-bold uppercase tracking-[0.1em] mb-2 cursor-pointer" style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)' }}>
                       Your Name
                     </label>
                     <input
+                      id="home-user-name"
+                      name="name"
                       type="text"
                       required
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       placeholder="John Doe"
-                      className="w-full px-4 py-3 text-sm outline-none transition-all focus:border-[var(--accent-cyan)] focus:ring-1 focus:ring-[var(--accent-cyan)]"
+                      className="w-full px-4 py-3 text-base outline-none transition-all focus:border-[var(--accent-cyan)] focus:ring-1 focus:ring-[var(--accent-cyan)]"
                       style={{
                         background: 'var(--ground)',
                         border: '1px solid var(--border-variant)',
@@ -268,16 +270,18 @@ export default function Contact() {
                     />
                   </div>
                   <div>
-                    <label className="block text-[10px] font-bold uppercase tracking-[0.1em] mb-2" style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)' }}>
+                    <label htmlFor="home-user-email" className="block text-[10px] font-bold uppercase tracking-[0.1em] mb-2 cursor-pointer" style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)' }}>
                       Your Email
                     </label>
                     <input
+                      id="home-user-email"
+                      name="email"
                       type="email"
                       required
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="john@domain.com"
-                      className="w-full px-4 py-3 text-sm outline-none transition-all focus:border-[var(--accent-cyan)] focus:ring-1 focus:ring-[var(--accent-cyan)]"
+                      className="w-full px-4 py-3 text-base outline-none transition-all focus:border-[var(--accent-cyan)] focus:ring-1 focus:ring-[var(--accent-cyan)]"
                       style={{
                         background: 'var(--ground)',
                         border: '1px solid var(--border-variant)',
@@ -355,16 +359,18 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label className="block text-[10px] font-bold uppercase tracking-[0.1em] mb-2" style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)' }}>
+                  <label htmlFor="home-user-message" className="block text-[10px] font-bold uppercase tracking-[0.1em] mb-2 cursor-pointer" style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)' }}>
                     Message
                   </label>
                   <textarea
+                    id="home-user-message"
+                    name="message"
                     rows={4}
                     required
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    placeholder="Tell me about your project..."
-                    className="w-full px-4 py-3 text-sm outline-none transition-all resize-none focus:border-[var(--accent-cyan)] focus:ring-1 focus:ring-[var(--accent-cyan)]"
+                    placeholder="Tell me about what you are building..."
+                    className="w-full px-4 py-3 text-base outline-none transition-all resize-none focus:border-[var(--accent-cyan)] focus:ring-1 focus:ring-[var(--accent-cyan)]"
                     style={{
                       background: 'var(--ground)',
                       border: '1px solid var(--border-variant)',
@@ -372,6 +378,7 @@ export default function Contact() {
                       borderRadius: '8px',
                     }}
                   />
+                </div>
                 {/* Cloudflare Turnstile Verification */}
                 <div className="flex justify-start my-4 overflow-hidden w-full origin-left max-w-full scale-[0.85] sm:scale-100">
                   <div ref={turnstileRef} />
