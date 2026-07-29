@@ -80,7 +80,13 @@ export default {
         });
       }
 
-      const apiKey = 'cm_live_81771d1f0bba2698d1b06025e79a27b0bae59846c8c91a2f';
+      const apiKey = env.CYPHEX_MAIL_API_KEY;
+      if (!apiKey) {
+        return new Response(JSON.stringify({ error: 'Mail service configuration error (API Key is missing).' }), {
+          status: 500,
+          headers: { 'Content-Type': 'application/json', ...corsHeaders },
+        });
+      }
 
       // 2. Send Notification Email to you (hamaza7867@gmail.com)
       const mailResponse = await fetch('https://mail.cyphex.agency/api/emails/send', {
