@@ -42,18 +42,19 @@
   --card-foreground: #1F1B11;
   --popover: #FFFDF7;
   --popover-foreground: #1F1B11;
-  --primary: #FFD22D;
-  --primary-foreground: #1F1B11;
+  --primary: #735c00;
+  --primary-foreground: #ffffff;
   --secondary: #665E46;
   --secondary-foreground: #ffffff;
   --muted: #F6EDDC;
   --muted-foreground: #4D4633;
-  --accent: #FFD22D;
-  --accent-foreground: #1F1B11;
+  --accent: #735c00;
+  --accent-foreground: #ffffff;
   --destructive: #ba1a1a;
   --border: #D7CBAE;
   --input: #F7F6F2;
-  --ring: #FFD22D;
+  --ring: #735c00;
+  --primary-container: #FFD22D;
 
   /* Surface system */
   --ground: #F7F6F2;
@@ -77,10 +78,10 @@
   --border-strong: #7F7660;
 
   /* Accent colors */
-  --accent-cyan: #FFD22D;
-  --accent-cyan-dim: rgba(255, 210, 45, 0.1);
-  --accent-cyan-muted: rgba(255, 210, 45, 0.15);
-  --accent-cyan-glow: rgba(255, 210, 45, 0.2);
+  --accent-cyan: #735c00;
+  --accent-cyan-dim: rgba(115, 92, 0, 0.1);
+  --accent-cyan-muted: rgba(115, 92, 0, 0.15);
+  --accent-cyan-glow: rgba(115, 92, 0, 0.2);
 
   --accent-purple: #6b548d;
   --accent-purple-dim: rgba(107, 84, 141, 0.1);
@@ -135,6 +136,7 @@
   --border: #3E4556;
   --input: #3E4556;
   --ring: #FFD22D;
+  --primary-container: #FFD22D;
 
   --ground: #262B35;
   --ground-dim: #1E222B;
@@ -414,8 +416,8 @@
 
 /* ===== BRUTALIST BUTTONS ===== */
 .btn-primary {
-  background: var(--accent-cyan) !important;
-  color: var(--primary-foreground) !important;
+  background: var(--primary-container) !important;
+  color: #1F1B11 !important;
   font-family: var(--font-display), sans-serif;
   font-weight: 700;
   border: 1px solid #000000 !important;
@@ -440,31 +442,4 @@
   transform: translate(-2px, -2px);
   border-color: var(--accent-cyan) !important;
   box-shadow: 3px 3px 0px 0px #000000 !important;
-}
-
-/* ===== ACCESSIBILITY: YELLOW TEXT CONTRAST OUTLINE ===== */
-.light [style*="color: var(--accent-cyan)"],
-.light [style*="color:var(--accent-cyan)"],
-.light .text-primary,
-.light .text-accent-cyan,
-.light .bg-primary\/10 {
-  text-shadow: 
-    -0.5px -0.5px 0 #000000,  
-     0.5px -0.5px 0 #000000,
-    -0.5px  0.5px 0 #000000,
-     0.5px  0.5px 0 #000000;
-}
-
-.light .bg-primary\/10 {
-  color: #1F1B11 !important;
-  border-color: #000000 !important;
-}
-
-.light [style*="color: var(--accent-cyan)"] a,
-.light [style*="color: var(--accent-cyan)"] span {
-  text-shadow: 
-    -0.5px -0.5px 0 #000000,  
-     0.5px -0.5px 0 #000000,
-    -0.5px  0.5px 0 #000000,
-     0.5px  0.5px 0 #000000;
 }
