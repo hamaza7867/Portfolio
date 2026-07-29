@@ -60,7 +60,7 @@ export default {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          from: 'portfolio-contact@cyphex.agency',
+          from: 'Ali Hamza Portfolio <portfolio-contact@cyphex.agency>',
           to: 'hamaza7867@gmail.com',
           subject: `⚡ New Inquiry: ${projectType} from ${name}`,
           html: `
@@ -136,7 +136,7 @@ export default {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            from: 'portfolio-contact@cyphex.agency',
+            from: 'Ali Hamza Portfolio <portfolio-contact@cyphex.agency>',
             to: email,
             subject: 'Inquiry Received - Ali Hamza',
             html: `
