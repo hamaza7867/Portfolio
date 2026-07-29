@@ -25,19 +25,19 @@ const education = [
 ];
 
 const certifications = [
-  'The Full Stack — Meta',
-  'Intro to Android Dev — Meta',
-  'AI For Everyone — DeepLearning.AI',
-  'Cybersecurity Essentials — IBM',
-  'Basics of Python — UniAthena',
-  'WordPress & Freelancing — DigiSkills',
+  'The Full Stack | Meta',
+  'Intro to Android Dev | Meta',
+  'AI For Everyone | DeepLearning.AI',
+  'Cybersecurity Essentials | IBM',
+  'Basics of Python | UniAthena',
+  'WordPress & Freelancing | DigiSkills',
 ];
 
 const awards = [
-  'Certificate of Recognition — QDCAP (Qubit Dynamics)',
-  'Certificate of Achievement — Art & Culture',
+  'Certificate of Recognition | QDCAP (Qubit Dynamics)',
+  'Certificate of Achievement | Art & Culture',
   'Workshop 3.0, UOL',
-  'Certificate of Appreciation — Founders Meetup 2025, Brain-Creatives',
+  'Certificate of Appreciation | Founders Meetup 2025, Brain-Creatives',
 ];
 
 const websites = [
@@ -107,7 +107,7 @@ export default function AboutPage() {
                   Full-Stack web & WordPress Developer focused on backend systems and SaaS product architecture. Built Voxis, a multi-tenant voice-automation platform with a sub-400ms real-time pipeline, and Voiceovers Digital, a long-form AI narration SaaS. Shipped a low-latency Go microservice on Google Cloud Run and an open-source WordPress plugin with its own Astro marketing site.
                 </p>
                 <p className="text-base md:text-lg leading-relaxed font-normal" style={{ color: 'var(--text-secondary)' }}>
-                  Comfortable owning a project end to end — architecture, backend logic, API design, containerization, and deployment — and increasingly works alongside AI coding agents to speed up implementation while keeping design decisions, code review, and system architecture in his own hands.
+                  Comfortable owning a project end to end (architecture, backend logic, API design, containerization, and deployment) and increasingly works alongside AI coding agents to speed up implementation while keeping design decisions, code review, and system architecture in his own hands.
                 </p>
               </div>
             </div>

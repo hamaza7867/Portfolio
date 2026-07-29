@@ -71,12 +71,12 @@ export default function ServicesPage() {
       </ScrollReveal>
 
       {/* Services Grid */}
-      <div className="grid gap-px bg-slate-200 overflow-hidden rounded-xl border border-variant sm:grid-cols-2 lg:grid-cols-3 relative z-10" style={{ background: 'var(--border-variant)', borderColor: 'var(--border-variant)' }}>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10">
         {services.map((service, i) => {
           const Icon = service.icon;
           return (
             <ScrollReveal key={service.title} delay={i * 0.05} className="flex">
-              <div className="bg-surface p-7 w-full flex flex-col justify-between hover:bg-slate-50/50 transition-colors duration-200">
+              <div className="card p-7 w-full flex flex-col justify-between bg-surface">
                 <div>
                   <div className="flex justify-between items-start mb-6">
                     <div className="text-xs text-slate-400 font-semibold" style={{ fontFamily: 'var(--font-mono)' }}>

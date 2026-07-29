@@ -27,7 +27,7 @@ const processes = [
   {
     num: '02',
     title: 'Build in sprints',
-    desc: 'Development happens in small, verifiable increments. You can inspect live progress early — no black boxes or end-of-project surprises.',
+    desc: 'Development happens in small, verifiable increments. You can inspect live progress early, with no black boxes or end-of-project surprises.',
   },
   {
     num: '03',
@@ -126,7 +126,7 @@ function Footer() {
         </div>
         <hr className="my-10" style={{ borderColor: 'var(--border-variant)' }} />
         <div className="flex flex-col items-center justify-between gap-3 text-xs sm:flex-row" style={{ color: 'var(--text-secondary)' }}>
-          <p className="mono">&copy; {new Date().getFullYear()} Ali Hamza — Software Engineer</p>
+          <p className="mono">&copy; {new Date().getFullYear()} Ali Hamza | Software Engineer</p>
           <p className="mono">Built with Next.js 16 · Tailwind CSS · TypeScript</p>
         </div>
       </div>
@@ -176,10 +176,10 @@ export default function Home() {
             </div>
           </ScrollReveal>
 
-          <div className="mt-12 grid gap-px overflow-hidden rounded-2xl sm:grid-cols-2 lg:grid-cols-4 border border-variant" style={{ background: 'var(--border-variant)' }}>
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {processes.map((proc, i) => (
               <ScrollReveal key={proc.num} delay={i * 0.05} className="flex">
-                <div className="p-7 w-full flex flex-col justify-between bg-surface group transition-all duration-300">
+                <div className="card p-7 w-full flex flex-col justify-between bg-surface group transition-all duration-300">
                   <div>
                     <div className="text-3xl font-bold transition-colors duration-300 group-hover:text-[var(--accent-cyan)]" style={{ color: 'var(--text-tertiary)', fontFamily: 'var(--font-mono)' }}>
                       {proc.num}

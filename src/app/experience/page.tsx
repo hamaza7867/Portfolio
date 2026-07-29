@@ -18,7 +18,7 @@ const experiences = [
     role: 'Full-Stack web & WordPress Developer',
     company: 'X2 Technologies (with Tech Process LLC)',
     period: 'Sep 2025 – Jan 2026',
-    desc: 'Developed backend logic, filtering, and routing for usalocalbusinesses.com, a directory platform with custom search and user dashboards. Constructed and scaled a programmatic routing framework generating directory and service sub-pages at volume. Led legacy security remediation — isolated and removed malicious file injections via FTP/SFTP to restore platform stability.',
+    desc: 'Developed backend logic, filtering, and routing for usalocalbusinesses.com, a directory platform with custom search and user dashboards. Constructed and scaled a programmatic routing framework generating directory and service sub-pages at volume. Led legacy security remediation by isolating and removing malicious file injections via FTP/SFTP to restore platform stability.',
   },
   {
     commit: 'e8c2f5a',

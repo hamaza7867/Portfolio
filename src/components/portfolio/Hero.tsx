@@ -50,7 +50,7 @@ export default function Hero() {
             className="text-base sm:text-lg leading-relaxed max-w-xl"
             style={{ color: 'var(--text-secondary)' }}
           >
-            I am Ali Hamza — a software engineer specializing in multi-tenant architectures, real-time telephony pipelines, and automated DevOps configurations.
+            I am Ali Hamza, a software engineer specializing in multi-tenant architectures, real-time telephony pipelines, and automated DevOps configurations.
           </motion.p>
 
           <motion.div
