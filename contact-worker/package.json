@@ -1,0 +1,7 @@
+{
+  "name": "portfolio-contact-worker",
+  "version": "1.0.0",
+  "devDependencies": {
+    "wrangler": "^3.30.0"
+  }
+}
