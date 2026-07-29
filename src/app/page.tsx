@@ -118,10 +118,10 @@ export default function Home() {
                   Tell me what you're building. I'll get back to you within 24 hours with scoping, a timeline, and a fixed quote.
                 </p>
                 <div className="mt-8 flex flex-wrap justify-center gap-3">
-                  <Link href="/contact" className="inline-flex items-center gap-1.5 px-6 py-3 text-sm font-bold uppercase tracking-wider rounded-lg bg-accent-cyan cursor-pointer" style={{ background: 'var(--accent-cyan)', color: 'var(--primary-foreground)', border: '1px solid #1E293B' }}>
+                  <Link href="/contact" className="btn-primary inline-flex items-center gap-1.5 px-6 py-3 text-sm font-bold uppercase tracking-wider cursor-pointer">
                     Start a project
                   </Link>
-                  <a href="tel:+923048898000" className="inline-flex items-center gap-1.5 px-6 py-3 text-sm font-bold uppercase tracking-wider rounded-lg border cursor-pointer hover:border-[var(--accent-cyan)] transition-colors" style={{ borderColor: 'var(--border-variant)', color: 'var(--text-secondary)' }}>
+                  <a href="tel:+923048898000" className="btn-secondary inline-flex items-center gap-1.5 px-6 py-3 text-sm font-bold uppercase tracking-wider cursor-pointer">
                     Call details
                   </a>
                 </div>

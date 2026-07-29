@@ -109,16 +109,14 @@ export default function Hero() {
           >
             <Link
               href="/projects"
-              className="inline-flex items-center gap-2 px-6 py-3 text-sm font-bold uppercase tracking-wider rounded-lg transition-all bg-accent-cyan cursor-pointer"
-              style={{ background: 'var(--accent-cyan)', color: 'var(--primary-foreground)', border: '1px solid #1E293B' }}
+              className="btn-primary inline-flex items-center gap-2 px-6 py-3 text-sm font-bold uppercase tracking-wider cursor-pointer"
             >
               View Work <ArrowRight size={15} />
             </Link>
             <a
               href="/Ali_Hamza_CV.pdf"
               download="Ali_Hamza_CV.pdf"
-              className="inline-flex items-center gap-2 px-6 py-3 text-sm font-bold uppercase tracking-wider rounded-lg border transition-all cursor-pointer hover:border-[var(--accent-cyan)]"
-              style={{ borderColor: 'var(--border-variant)', color: 'var(--text-secondary)', background: 'var(--surface)' }}
+              className="btn-secondary inline-flex items-center gap-2 px-6 py-3 text-sm font-bold uppercase tracking-wider cursor-pointer"
             >
               <FileDown size={15} /> Resume (PDF)
             </a>

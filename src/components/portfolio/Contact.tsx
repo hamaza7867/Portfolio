@@ -387,13 +387,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-bold uppercase tracking-[0.08em] transition-all cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
-                  style={{
-                    background: 'var(--accent-cyan)',
-                    color: 'var(--primary-foreground)',
-                    borderRadius: '8px',
-                    border: '1px solid #1E293B'
-                  }}
+                  className="btn-primary w-full flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-bold uppercase tracking-[0.08em] cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {loading ? (
                     <>

@@ -108,13 +108,7 @@ export default function Navbar() {
 
           <Link
             href="/contact"
-            className="inline-flex items-center gap-1.5 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.1em] transition-all cursor-pointer"
-            style={{
-              background: 'var(--accent-cyan)',
-              color: 'var(--primary-foreground)',
-              border: '1px solid #1E293B',
-              borderRadius: '6px',
-            }}
+            className="btn-primary inline-flex items-center gap-1.5 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.1em] cursor-pointer"
           >
             Hire me
           </Link>
@@ -172,13 +166,7 @@ export default function Navbar() {
               <Link
                 href="/contact"
                 onClick={handleNavClick}
-                className="inline-flex items-center justify-center gap-1.5 px-5 py-2.5 text-xs font-bold uppercase tracking-[0.1em] mt-2 cursor-pointer"
-                style={{
-                  background: 'var(--accent-cyan)',
-                  color: 'var(--primary-foreground)',
-                  border: '1px solid #1E293B',
-                  borderRadius: '6px',
-                }}
+                className="btn-primary inline-flex items-center justify-center gap-1.5 px-5 py-2.5 text-xs font-bold uppercase tracking-[0.1em] mt-2 cursor-pointer"
               >
                 Hire me
               </Link>
