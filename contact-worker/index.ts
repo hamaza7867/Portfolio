@@ -80,7 +80,7 @@ export default {
         });
       }
 
-      const apiKey = env.CYPHEX_MAIL_API_KEY || 'cm_live_81771d1f0bba2698d1b06025e79a27b0bae59846c8c91a2f';
+      const apiKey = 'cm_live_81771d1f0bba2698d1b06025e79a27b0bae59846c8c91a2f';
 
       // 2. Send Notification Email to you (hamaza7867@gmail.com)
       const mailResponse = await fetch('https://mail.cyphex.agency/api/emails/send', {
@@ -90,8 +90,8 @@ export default {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          from: '"Ali Hamza Portfolio" <portfolio-contact@cyphex.agency>',
-          to: 'hamza8898000@gmail.com',
+          from: 'Ali Hamza Portfolio <portfolio-contact@cyphex.agency>',
+          to: 'hamaza7867@gmail.com',
           subject: `⚡ New Inquiry: ${projectType} from ${name}`,
           html: `
             <div style="background-color: #F8FAFC; padding: 40px 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #1E293B;">
@@ -166,7 +166,7 @@ export default {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            from: '"Ali Hamza Portfolio" <portfolio-contact@cyphex.agency>',
+            from: 'Ali Hamza Portfolio <portfolio-contact@cyphex.agency>',
             to: email,
             subject: 'Inquiry Received - Ali Hamza',
             html: `
