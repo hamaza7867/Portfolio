@@ -1,4 +1,4 @@
-name = "portfolio-contact-worker"
+name = "emailworker"
 main = "index.ts"
 compatibility_date = "2024-03-01"
 

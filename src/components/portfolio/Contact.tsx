@@ -56,7 +56,7 @@ export default function Contact() {
     setLoading(true);
 
     try {
-      const response = await fetch('https://portfolio-contact-worker.hamaza7867.workers.dev', {
+      const response = await fetch('https://emailworker.hamaza7867.workers.dev', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
