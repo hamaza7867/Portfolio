@@ -77,10 +77,10 @@
   --border-strong: #74777f;
 
   /* Accent colors */
-  --accent-cyan: #2196F3;
-  --accent-cyan-dim: rgba(33, 150, 243, 0.1);
-  --accent-cyan-muted: rgba(33, 150, 243, 0.15);
-  --accent-cyan-glow: rgba(33, 150, 243, 0.2);
+  --accent-cyan: #0369a1;
+  --accent-cyan-dim: rgba(3, 105, 161, 0.1);
+  --accent-cyan-muted: rgba(3, 105, 161, 0.15);
+  --accent-cyan-glow: rgba(3, 105, 161, 0.2);
 
   --accent-purple: #6b548d;
   --accent-purple-dim: rgba(107, 84, 141, 0.1);
