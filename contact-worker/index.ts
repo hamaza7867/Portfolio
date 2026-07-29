@@ -1,5 +1,5 @@
 export interface Env {
-  RESEND_API_KEY: string;
+  CYPHEX_MAIL_API_KEY: string;
 }
 
 export default {
@@ -40,21 +40,17 @@ export default {
         });
       }
 
-      if (!env.RESEND_API_KEY) {
-        return new Response(JSON.stringify({ error: 'Worker misconfigured: Missing API Key' }), {
-          status: 500,
-          headers: { 'Content-Type': 'application/json', ...corsHeaders },
-        });
-      }
+      // Use the provided environment variable or the fallback key provided by the user
+      const apiKey = env.CYPHEX_MAIL_API_KEY || 'cm_live_81771d1f0bba2698d1b06025e79a27b0bae59846c8c91a2f';
 
-      const resendResponse = await fetch('https://api.resend.com/emails', {
+      const mailResponse = await fetch('https://mail.cyphex.agency/api/emails/send', {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${env.RESEND_API_KEY}`,
+          'Authorization': `Bearer ${apiKey}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          from: 'Portfolio Contact <onboarding@resend.dev>',
+          from: 'portfolio-contact@cyphex.agency',
           to: 'hamaza7867@gmail.com',
           subject: `New Inquiry: ${projectType} from ${name}`,
           html: `
@@ -66,12 +62,13 @@ export default {
             <p><strong>Message:</strong></p>
             <p>${message.replace(/\n/g, '<br>')}</p>
           `,
+          text: `New Contact Form Submission\nName: ${name}\nEmail: ${email}\nProject Type: ${projectType}\nBudget Range: ${budget}\nMessage: ${message}`
         }),
       });
 
-      if (!resendResponse.ok) {
-        const errText = await resendResponse.text();
-        return new Response(JSON.stringify({ error: `Failed to send email: ${errText}` }), {
+      if (!mailResponse.ok) {
+        const errText = await mailResponse.text();
+        return new Response(JSON.stringify({ error: `Failed to send email via Cyphex Mail: ${errText}` }), {
           status: 502,
           headers: { 'Content-Type': 'application/json', ...corsHeaders },
         });
